@@ -1,0 +1,22 @@
+# config.yaml — all tunable settings live here, not in the code
+
+data:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  listings_file: data/raw/roodepoort_property_listings.csv
+
+model:
+  test_size: 0.2
+  random_state: 42
+  model_path: models/price_model.joblib
+
+cleaning:
+  min_price: 100000        # drop anything below R100k (likely bad data)
+  max_price: 50000000      # drop anything above R50M (extreme outliers)
+  min_area: 10             # minimum 10 sqm
+  max_area: 10000          # maximum 10 000 sqm
+
+logging:
+  level: INFO
+  format: "%(asctime)s — %(name)s — %(levelname)s — %(message)s"
